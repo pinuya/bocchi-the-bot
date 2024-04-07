@@ -1,0 +1,11 @@
+{
+  "name": "bocchi-the-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/pinuya/bocchi-the-bot.git",
+  "author": "Aether <tifsnunes@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.14.1"
+  }
+}
