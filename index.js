@@ -1,14 +1,14 @@
-import { IntentsBitField, REST, Routes, Client, Collection } from "discord.js";
-import dotenv from "dotenv";
-import { Player } from "discord-player";
-import fs from "node:fs";
-import path from "node:path";
-
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const {
+  IntentsBitField,
+  REST,
+  Routes,
+  Client,
+  Collection,
+} = require("discord.js");
+const dotenv = require("dotenv");
+const { Player } = require("discord-player");
+const fs = require("node:fs");
+const path = require("node:path");
 
 dotenv.config();
 

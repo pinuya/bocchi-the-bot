@@ -7,7 +7,7 @@
     "build": "tsc src/index.ts",
     "start": "tsc src/index.ts && node ."
   },
-  "type": "module",
+  
   "repository": "https://github.com/pinuya/bocchi-the-bot.git",
   "author": "Bocchi",
   "license": "MIT",
