@@ -24,16 +24,8 @@ const client = new Client({
 // Load all commands
 const commands = [
   {
-    name: "ping",
-    description: "Responde com Pong!",
-  },
-  {
     name: "play",
     description: "Coloque o link da música que deseja ouvir.",
-  },
-  {
-    name: "skip",
-    description: "Pulará a música atual e reproduzirei a proxima na queue.",
   },
 ];
 
