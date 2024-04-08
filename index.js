@@ -52,6 +52,7 @@ for (const file of commandFiles) {
   commands.push(command);
 }
 
+//Player
 client.player = new Player(client, {
   ytdlOptions: {
     qualiy: "highestaudio",
@@ -73,6 +74,7 @@ client.on("ready", () => {
   }
 });
 
+//comando errado
 client.on("interactionCreate", async (interaction) => {
   if (!command) return;
 
@@ -83,3 +85,5 @@ client.on("interactionCreate", async (interaction) => {
     await interaction.reply("An error occurred while executing that command.");
   }
 });
+
+client.login(process.env.TOKEN);
