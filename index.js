@@ -22,26 +22,48 @@ const client = new Client({
 });
 
 // Load all commands
-const commands = [
+const command = [
   {
     name: "play",
     description: "Coloque o link da música que deseja ouvir.",
   },
+  {
+    name: "pause",
+    description: "Pausará a música atual.",
+  },
+  {
+    name: "resume",
+    description: "Retonará a música atual.",
+  },
+  {
+    name: "skip",
+    description: "Pulará a música atual e irá para a proxima na fila.",
+  },
+  {
+    name: "queue",
+    description: "Mostrará a lista de reprodução.",
+  },
+  {
+    name: "exit",
+    description: "Sairei do canal atual.",
+  },
 ];
 
-client.commands = new Collection();
+client.command = new Collection();
 
-const commandsPath = path.join(__dirname, "commands");
+const commandsPath = path.join(__dirname, "commands/music");
 const commandFiles = fs
   .readdirSync(commandsPath)
   .filter((file) => file.endsWith(".js"));
 
 for (const file of commandFiles) {
   const filePath = path.join(commandsPath, file);
-  const command = require(filePath);
+  const commands = require(filePath);
 
-  client.commands.set(command.data.name, command);
-  commands.push(command.data.toJSON());
+  console.log(command);
+
+  client.command.set(commands.data.name, command);
+  command.push(commands.data.toJSON());
 }
 
 //Player
@@ -59,7 +81,7 @@ client.on("ready", () => {
   for (const guildId of guild_ids) {
     rest
       .put(Routes.applicationGuildCommands(process.env.CLIENT_ID, guildId), {
-        body: commands,
+        body: command,
       })
       .then(() => console.log(`Added commands to ${guildId}`))
       .catch(console.error);
@@ -68,9 +90,13 @@ client.on("ready", () => {
 
 //comando errado
 client.on("interactionCreate", async (interaction) => {
+  if (!interaction.isCommand()) return;
+
+  const command = client.command.get(interaction.commandName);
   if (!command) return;
 
   try {
+    console.log(command);
     await command.execute({ client, interaction });
   } catch (err) {
     console.error(err);

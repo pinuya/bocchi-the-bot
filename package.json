@@ -7,7 +7,6 @@
     "build": "tsc src/index.ts",
     "start": "tsc src/index.ts && node ."
   },
-  
   "repository": "https://github.com/pinuya/bocchi-the-bot.git",
   "author": "Bocchi",
   "license": "MIT",
@@ -19,7 +18,8 @@
     "discord-api-types": "^0.37.79",
     "discord-player": "^6.6.8",
     "discord.js": "^14.14.1",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "ffmpeg-static": "^5.2.0"
   },
   "devDependencies": {
     "ts-node": "^10.9.2",
