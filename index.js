@@ -41,7 +41,7 @@ for (const file of commandFiles) {
   const command = require(filePath);
 
   client.commands.set(command.data.name, command);
-  commands.push(command);
+  commands.push(command.data.toJSON());
 }
 
 //Player

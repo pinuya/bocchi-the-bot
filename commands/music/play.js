@@ -11,7 +11,7 @@ module.exports = {
         .setName("search")
         .setDescription("Pesquise por uma música")
         .addStringOption((option) => {
-          option
+          return option
             .setName("searchterms")
             .setDescription("search keywords")
             .setRequire(true);
@@ -22,7 +22,10 @@ module.exports = {
         .setname("playlist")
         .setDescription("reproduzirá playlist do YouTube")
         .addStringOption((option) => {
-          option.setname("url").setDescription("playlist url").setRequire(true);
+          return option
+            .setname("url")
+            .setDescription("playlist url")
+            .setRequire(true);
         });
     })
     .addSubcommand((subcommand) => {
@@ -30,7 +33,7 @@ module.exports = {
         .setName("song")
         .setDescription("reproduzirá música do YouTube")
         .addStringOption((option) => {
-          option
+          return option
             .setName("url")
             .setDescription("URL de uma música")
             .setRequire(true);
